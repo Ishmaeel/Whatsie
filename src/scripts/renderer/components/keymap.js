@@ -26,6 +26,8 @@ Mousetrap.bind('esc', function () {
   log('close with esc shortcut, enabled:', enabled);
   if (enabled) {
     ipcRenderer.send('close-window');
+    return false; // Just close the window and swallow the keypress.
   }
-  return enabled;
+  
+  return enabled; // Allow the default ESC behaviour (close media popups).
 });
